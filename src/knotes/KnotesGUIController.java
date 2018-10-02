@@ -6,13 +6,18 @@
 package knotes;
 
 import java.awt.GraphicsEnvironment;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Scanner;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.text.Font;
+import javafx.stage.FileChooser;
+import javafx.stage.FileChooser.ExtensionFilter;
 
 /**
  * FXML Controller class
@@ -26,6 +31,8 @@ public class KnotesGUIController implements Initializable {
     
     @FXML
     private ChoiceBox fontType;
+    
+
       
     public void fontChosen() {
         textArea.setFont(Font.font(fontType.getValue().toString(), (float) (textArea.getFont().getSize())));
@@ -38,6 +45,35 @@ public class KnotesGUIController implements Initializable {
     
     public void decreaseFont() {
         textArea.setFont(Font.font(fontType.getValue().toString(), (float) (textArea.getFont().getSize() - 1.0f)));
+    }
+    
+    public void newFile() {
+        
+    }
+    
+    public void openFile() throws FileNotFoundException {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Select .txt files");
+        fileChooser.getExtensionFilters().addAll(new ExtensionFilter(".txt", "*.txt"));
+        File selectedFile = fileChooser.showOpenDialog(null);
+        if (selectedFile != null) {
+            System.out.println("Opened");
+            File file = new File(selectedFile.getAbsolutePath());
+            Scanner sc = new Scanner(file);  
+            while (sc.hasNextLine()) {
+                textArea.appendText(sc.nextLine()+"\n");
+            }
+        } else {
+            System.out.println("Cancelled");
+        }
+    }
+    
+    public void saveFile() {
+        
+    }
+    
+    public void saveAsFile() {
+        
     }
     
     @Override
