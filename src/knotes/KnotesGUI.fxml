@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.net.*?>
 <?import java.util.*?>
@@ -7,7 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="529.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="knotes.KnotesGUIController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="434.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="knotes.KnotesGUIController">
     <stylesheets>
         <URL value="@knotesgui.css" />
     </stylesheets>
@@ -20,7 +21,7 @@
                     <items>
                       <AnchorPane maxHeight="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" SplitPane.resizableWithParent="false">
                            <children>
-                              <MenuBar layoutX="-1.0" prefHeight="40.0" prefWidth="396.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <MenuBar layoutX="-1.0" prefHeight="40.0" prefWidth="396.0" style="-fx-background-color: #3399ff;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                 <menus>
                                   <Menu mnemonicParsing="false" text="File">
                                     <items>
@@ -41,8 +42,17 @@
                               </MenuBar>
                               <HBox layoutY="40.0">
                                  <children>
-                                    <ComboBox layoutX="7.0" layoutY="38.0" onAction="#FontChosen" prefHeight="51.0" prefWidth="110.0" promptText="Font" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" />
-                                    <ColorPicker layoutX="109.0" layoutY="40.0" prefHeight="51.0" prefWidth="110.0" AnchorPane.bottomAnchor="0.0" />
+                                    <ChoiceBox fx:id="fontType" prefHeight="51.0" prefWidth="170.0" style="-fx-background-color: #ed40f9;" />
+                                    <Button mnemonicParsing="false" onAction="#increaseFont" prefHeight="51.0" prefWidth="51.0" style="-fx-background-color: #42f46e;" text="+">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Button>
+                                    <Button onAction="#decreaseFont" prefHeight="51.0" prefWidth="51.0" style="-fx-background-color: red;" text="-">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Button>
                                  </children>
                               </HBox>
                            </children>
@@ -51,12 +61,7 @@
                            <children>
                               <TabPane layoutX="-60.0" layoutY="-100.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="33.0" prefWidth="396.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                 <tabs>
-                                  <Tab text="Untitled Tab 1">
-                                    <content>
-                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                                    </content>
-                                  </Tab>
-                                  <Tab text="Untitled Tab 2">
+                                  <Tab text="New Knote">
                                     <content>
                                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                                     </content>
@@ -71,7 +76,10 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <TextArea layoutX="93.0" layoutY="52.0" prefHeight="476.0" prefWidth="398.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <TextArea fx:id="textArea" layoutX="93.0" layoutY="52.0" onMouseEntered="#fontChosen" prefHeight="476.0" prefWidth="398.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <font>
+                        <Font name="Times New Roman" size="18.0" />
+                     </font></TextArea>
                </children>
             </AnchorPane>
         </items>
