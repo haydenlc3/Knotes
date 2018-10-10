@@ -25,20 +25,16 @@
                                 <menus>
                                   <Menu mnemonicParsing="false" text="File">
                                     <items>
+                                          <MenuItem mnemonicParsing="false" onAction="#newFile" text="New File" />
                                           <MenuItem mnemonicParsing="false" onAction="#openFile" text="Open" />
-                                          <MenuItem mnemonicParsing="false" text="Save" />
-                                          <MenuItem mnemonicParsing="false" text="Save As" />
+                                          <MenuItem mnemonicParsing="false" onAction="#saveFile" text="Save" />
+                                          <MenuItem mnemonicParsing="false" onAction="#saveAsFile" text="Save As" />
                                       <MenuItem mnemonicParsing="false" text="Close File" />
                                     </items>
                                   </Menu>
                                   <Menu mnemonicParsing="false" text="Edit">
                                     <items>
-                                      <MenuItem mnemonicParsing="false" text="Delete" />
-                                    </items>
-                                  </Menu>
-                                  <Menu mnemonicParsing="false" text="Help">
-                                    <items>
-                                      <MenuItem mnemonicParsing="false" text="About" />
+                                      <MenuItem mnemonicParsing="false" text="Clear Text" />
                                     </items>
                                   </Menu>
                                 </menus>
@@ -64,7 +60,7 @@
                            <children>
                               <TabPane layoutX="-60.0" layoutY="-100.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="33.0" prefWidth="396.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                 <tabs>
-                                  <Tab text="New Knote">
+                                  <Tab fx:id="tab" text="New Knote">
                                     <content>
                                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                                     </content>
